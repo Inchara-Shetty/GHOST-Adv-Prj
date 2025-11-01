@@ -23,11 +23,13 @@ Save vulnerable RTL designs and testbenches
 Compile and simulate using Icarus Verilog (iverilog + vvp) to detect Trojans
 
 🧩 Trojan Types & Behavior
-ID	Vulnerability Type	Effect	Trigger Condition
-T1	Functionality Change	Inverts sum output under rare inputs	( a,b,cin ) = (1,1,0) × 8
-T2	Information Leakage	Leaks internal carry via covert output	( a,b,cin ) = (1,0,1) × 8
-T3	Denial of Service	Forces outputs to zero	( a,b,cin ) = (1,0,1) × 3
-T4	Performance Degradation	Activates shift register → high power	( a,b,cin ) = (1,1,1) × 6
+|  ID | Vulnerability Type      | Effect                                 | Trigger Condition         |
+| :-: | :---------------------- | :------------------------------------- | :------------------------ |
+|  T1 | Functionality Change    | Inverts sum output under rare inputs   | ( a,b,cin ) = (1,1,0) × 8 |
+|  T2 | Information Leakage     | Leaks internal carry via covert output | ( a,b,cin ) = (1,0,1) × 8 |
+|  T3 | Denial of Service       | Forces outputs to zero                 | ( a,b,cin ) = (1,0,1) × 3 |
+|  T4 | Performance Degradation | Activates shift register → high power  | ( a,b,cin ) = (1,1,1) × 6 |
+
 
 🧪 Testing & Validation
 
@@ -38,14 +40,6 @@ Baseline functional behavior (pre-trigger)
 Trigger activation sequence
 
 Post-trigger response and VCD waveform inspection
-
-Run example:
-
------------------------------------------------------------
-iverilog -o tb_T1.vvp full_adder_T1.v tb_full_adder_T1.v
-vvp tb_T1.vvp
-gtkwave tb_full_adder_T1.vcd
------------------------------------------------------------
 
 🛠️ Troubleshooting & Design Decisions
 
